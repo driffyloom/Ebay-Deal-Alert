@@ -81,11 +81,11 @@ class eBaySearch:
                 image = item.galleryurl.string.lower()
             except AttributeError:
                 image = "N/A"
-            collectionDict[self.queryAndPrice] = {"title": title, "category":cat, "price":price,
+            collectionDict = {"title": title, "category":cat, "price":price,
                                                   "url":url , "image" :image}
             allItemsToAddToCol.append(collectionDict)
 
-
+ 
         completedInsertionIDList = queryAndPriceCollection.insert_many(allItemsToAddToCol)
 
         print(completedInsertionIDList.inserted_ids)
@@ -105,10 +105,5 @@ test.addResultsToDB(test.search(searchQuery,priceLimit))
 
 #should make table for each user search query
 #dblist = myclient.list_database_names()
-
-
-
-if "eBaySearchData" in dblist:
-  print("The database exists.")
 
 
