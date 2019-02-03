@@ -32,4 +32,4 @@ Currently Installed by pip
 - virtualenv  
 - pymongo  
 - flask  
-- mongoengine (for python object mapping to mongodb)  
+- flask_pymongo

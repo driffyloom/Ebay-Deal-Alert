@@ -88,11 +88,9 @@ class eBaySearch:
  
         completedInsertionIDList = queryAndPriceCollection.insert_many(allItemsToAddToCol)
 
-        print(completedInsertionIDList.inserted_ids)
+
 
 test = eBaySearch("AustinCh-DealAler-SBX-a39332c51-8b41e853")
-
-
 
 searchQuery = input("What are you searching for? (Using eBay Sandbox!)");
 
