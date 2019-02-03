@@ -8,6 +8,7 @@ client = pymongo.MongoClient("mongodb://%s:%s@localhost:27017/"% ("AustinAdmin",
 mydb = client["eBaySearchData"]
 
 @app.route("/")
+@app.route("/home")
 def index():
     return render_template("index.html")
 
@@ -20,9 +21,11 @@ def handle_search(search):
 
 @app.route('/somewhere' , methods = ["POST","GET"])
 def some_page():
-    default_name = '0'
-    data = request.form.get('searchBar', default_name)
-    print(data)
+    search = request.form['searchBar']
+    mycol = mydb["iphone200"]
+    data = mycol.find()
+
+    return  render_template("searchResults.html",data = data)
 
 @app.route("/hello")
 def hello():
