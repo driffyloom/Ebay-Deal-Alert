@@ -32,4 +32,3 @@ Currently Installed by pip
 - virtualenv  
 - pymongo  
 - flask  
-- flask_pymongo

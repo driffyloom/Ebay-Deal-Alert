@@ -25,7 +25,8 @@ export default class Menu extends React.Component{
                 <form action="/somewhere" method="POST">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Search</label>
-                        <input  class="form-control" name="searchBar" placeholder="Search Here!"></input>
+                        <input  class="form-control" name="searchBar" placeholder="Search Here"></input>
+                        <input  class="form-control" name="priceLimit" placeholder="Price Limit"></input>
                         <button type="submit" class="btn btn-primary"> Submit</button>
                     </div>
                 </form>

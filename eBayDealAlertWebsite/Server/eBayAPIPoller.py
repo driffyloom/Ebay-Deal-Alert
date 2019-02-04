@@ -11,10 +11,17 @@ class eBaySearch:
               config_file=None)
         
         username = "AustinAdmin"
-        password = "test"
+        #localhost password
+        #password = "test"
         
-        self.myclient = pymongo.MongoClient("mongodb://%s:%s@localhost:27017/"% (username, password))
-
+        #mLabPassword
+        password = "testPassword1"
+        
+        #for hosting on localhost
+        #self.myclient = pymongo.MongoClient("mongodb://%s:%s@localhost:27017/"% (username, password))
+        
+        #for hosting on mLab
+        self.myclient = pymongo.MongoClient("mongodb://%s:%s@ds057862.mlab.com:57862/dealalertdb"%(username, password))
 
 
     #sends api request with searchQuery and priceLimit to ebayAPI and returns response
@@ -62,7 +69,9 @@ class eBaySearch:
             
     def addResultsToDB(self,items):
         #Create Database called eBaySearchData
-        mydb = self.myclient["eBaySearchData"]
+        #localhost version
+        #mydb = self.myclient["eBaySearchData"]
+        mydb = self.myclient["dealalertdb"] 
 
         #need to modify collection to have user as an extra layer above everything
         #to store user then their saves
@@ -87,7 +96,6 @@ class eBaySearch:
 
  
         completedInsertionIDList = queryAndPriceCollection.insert_many(allItemsToAddToCol)
-        queryAndPriceCollection.createIndex({"
 
 
 
