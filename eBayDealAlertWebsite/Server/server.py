@@ -27,16 +27,18 @@ def handle_search(search):
     print(search)
     return search
 
-@app.route('/somewhere' , methods = ["POST","GET"])
-def some_page():
+@app.route('/searchResults/<int:page>' , methods = ["POST","GET"])
+def searchResults(page):
+    #if(request.method == 'POST'):
     search = request.form['searchBar']
     priceLimit = request.form['priceLimit']
+    #if(request.method == 'GET'):
     eBayAPIPoller = eBaySearch("AustinCh-DealAler-SBX-a39332c51-8b41e853")
 
     eBayAPIPoller.addResultsToDB(eBayAPIPoller.search(search,priceLimit))
     collectionName = search + priceLimit
     mycol = mydb[collectionName]
-    data = mycol.find()
+    data = mycol.find().skip((page-1)*20).limit(20)
 
     return  render_template("searchResults.html",data = data)
 

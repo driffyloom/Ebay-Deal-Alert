@@ -22,7 +22,7 @@ export default class Menu extends React.Component{
     render(){
         return(
             <div>
-                <form action="/somewhere" method="POST">
+                <form action="/searchResults/1" method="POST">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Search</label>
                         <input  class="form-control" name="searchBar" placeholder="Search Here"></input>

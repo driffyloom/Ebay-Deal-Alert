@@ -54,17 +54,23 @@ class eBaySearch:
             price = int(round(float(item.currentprice.string)))
             url = item.viewitemurl.string.lower()
             #Photo only exists for non sandbox site
-            try:
-                image = item.galleryurl.string.lower()
-            except AttributeError:
-                print("No Image skipping image save")
-                
-            #print(item)
+            
+            
             print('________')
             print('cat:\n' + cat + '\n')
             print('title:\n' + title + '\n')
             print('price:\n' + str(price) + '\n')
             print('url:\n' + url + '\n')
+
+            try:
+                image = item.galleryurl.string.lower()
+                print(image)
+
+            except AttributeError:
+                print("No Image skipping image save")
+                
+            #print(item)
+
             input()
             
     def addResultsToDB(self,items):
@@ -95,7 +101,7 @@ class eBaySearch:
             allItemsToAddToCol.append(collectionDict)
 
  
-        completedInsertionIDList = queryAndPriceCollection.insert_many(allItemsToAddToCol)
+        queryAndPriceCollection.insert_many(allItemsToAddToCol)
 
 
 

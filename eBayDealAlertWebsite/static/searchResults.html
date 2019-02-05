@@ -5,14 +5,33 @@
       <!-- Latest compiled and minified bootstrap CSS -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
     </head>
+      <table class = "table">
         <p>Search Results</p>
         {% for item in data %}
-        <p>{{item.title}}</p>
-        <p>{{item.category}}</p>
-        <p>{{item.price}}</p>
-        <p>{{item.url}}</p>
+        <tr>
+          <th>{{item.title}}</th>
+          <th>{{item.category}}</th>
+          <th>{{item.price}}</th>
+          <th><a href="{{item.url}}">{{item.url}}</a></th>
+        </tr>
         {% endfor %}
-        <p>TEST SUCCESS!</p>
-      
+      </table>
+
+      <nav aria-label="...">
+          <ul class="pagination">
+            <li class="page-item">
+              <a class="page-link" action="/searchResults/1"  tabindex="-1">Previous</a>
+            </li>
+
+            <li class="page-item"><a class="page-link" action="/searchResults/1" method="POST">1</a></li>
+            <li class="page-item"><a class="page-link" action="/searchResults/2" method="POST">2</a></li>
+            <li class="page-item"><a class="page-link" action="/searchResults/3" method="POST">3</a></li>
+
+            <li class="page-item">
+              <a class="page-link" action="/searchResults/3" >Next</a>
+            </li>
+          </ul>
+        </nav>
+
       <script src="/dist/app.js" type = "text/javascript" src="{{url_for('static', filename='app.js')}}"></script>
   </html>
