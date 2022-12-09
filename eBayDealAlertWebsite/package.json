@@ -19,7 +19,7 @@
     "body-parser": "^1.18.3",
     "css-loader": "^2.1.0",
     "expose-loader": "^0.7.5",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "file-loader": "^3.0.1",
     "jquery": "^3.3.1",
     "minify": "^4.1.0",
